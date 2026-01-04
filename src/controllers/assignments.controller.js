@@ -5,7 +5,7 @@ import { Asset } from "../models/Asset.js";
 import { Employee } from "../models/Employee.js";
 import { AssetAssignment } from "../models/AssetAssignment.js";
 import { sendMailSafe } from "../services/graphMail.js";
-import assignmentEmailHtml from "../templates/assignmentEmailTemplate.js";
+import assignmentEmailHtml from "../services/assignmentEmailTemplate.js";
 
 const assignSchema = z.object({
   assetId: z.string().min(1),

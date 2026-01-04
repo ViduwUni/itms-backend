@@ -13,6 +13,9 @@ import settingsRoutes from "./routes/settings.routes.js";
 import internetRoutes from "./routes/internet.routes.js";
 import repairsRoutes from "./routes/repairs.routes.js";
 import maintenanceRoutes from "./routes/maintenance.routes.js";
+import dashboardRoutes from "./routes/dashboard.routes.js";
+import billingRemindersRoutes from "./routes/billingReminders.routes.js";
+import fingerprintRoutes from "./routes/fingerprint.routes.js";
 
 export function createApp() {
   const app = express();
@@ -36,6 +39,7 @@ export function createApp() {
 
   app.use("/api/auth", authRoutes);
   app.use("/api/users", usersRoutes);
+  app.use("/api/dashboard", dashboardRoutes);
   app.use("/api/employees", employeesRoutes);
   app.use("/api/assets", assetsRoutes);
   app.use("/api/assignments", assignmentsRoutes);
@@ -44,6 +48,8 @@ export function createApp() {
   app.use("/api/internet", internetRoutes);
   app.use("/api/repairs", repairsRoutes);
   app.use("/api/maintenance", maintenanceRoutes);
+  app.use("/api/billing-reminders", billingRemindersRoutes);
+  app.use("/api/fingerprint", fingerprintRoutes);
 
   app.use((err, req, res, next) => {
     const status = err?.name === "ZodError" ? 400 : err.status || 500;
